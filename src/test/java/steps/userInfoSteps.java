@@ -55,7 +55,13 @@ public class userInfoSteps{
     public void the_response_json_is_false() {
         assertEquals(infoResponse.jsonPath().getString("code"),"10");
         assertEquals(infoResponse.jsonPath().getString("message"),"SUCCESS");
-
+        assertEquals(infoResponse.jsonPath().getString("data.name"),"John");
+        assertEquals(infoResponse.jsonPath().getString("data.surname"),"Doe");
+        assertEquals(infoResponse.jsonPath().getString("data.age"),"30");
+        assertEquals(infoResponse.jsonPath().getString("data.gender"),"1");
+        assertEquals(infoResponse.jsonPath().getString("data.language"),"en");
+        assertEquals(infoResponse.jsonPath().getString("data.status"),"registered");
+        assertEquals(infoResponse.jsonPath().getString("data.isBlocked"),"false");
     }
 
     @Then("we send get request to \\/info endpoint")
